@@ -1,0 +1,61 @@
+<form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+	<div class="row">
+		<div class="col mr-5">
+			<h1>{{ getTypeTitle() }}</h1>
+		</div>
+		<div class="col">
+  			<button type="submit" class="btn btn-primary float-right" *ngIf="isCreate()">Ajouter</button>
+		</div>
+		<div class="col" *ngIf="!isCreate()">
+			
+			<button type="submit" class="btn btn-success" >
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+					<path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+				  </svg>
+			  </button>
+  			<button type="button" (click)="changeState()" class="btn btn-success ml-1 mr-1" *ngIf="!model.isDone">
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" d="M5.5 3.5a2.5 2.5 0 0 1 5 0V4h-5v-.5zm6 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+				  </svg>
+			  </button>
+  			<button type="button" (click)="changeState()" class="btn btn-danger ml-1 mr-1" *ngIf="model.isDone">
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"/>
+					<path fill-rule="evenodd" d="M6.146 8.146a.5.5 0 0 1 .708 0L8 9.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 10l1.147 1.146a.5.5 0 0 1-.708.708L8 10.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 10 6.146 8.854a.5.5 0 0 1 0-.708z"/>
+				  </svg>
+			  </button>
+  			<button type="button" (click)="destroyTask()" class="btn btn-danger" >
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+					<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+				  </svg>
+			  </button>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="inputText" class="col-sm-2 col-form-label">Matière</label>
+		<div class="col-sm-10">
+		<input type="text" class="form-control" id="inputText" placeholder="Mathématiques" name="matiere" [(ngModel)]="model.matiere">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="inputText" class="col-sm-2 col-form-label">Description</label>
+		<div class="col-sm-10">
+		<input type="text" class="form-control" id="inputText" placeholder="Exercices 1 et 2" name="exo" [(ngModel)]="model.description" >
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label for="example-date-input" class="col-2 col-form-label">Date</label>
+		<div class="col-10">
+			<input class="form-control" type="date"  id="example-date-input" name="date" [(ngModel)]="jourTaskAct" >
+		</div>
+	</div>
+	<div class="form-group" *ngIf="isCreate() || ( !isCreate() && !tache.isDone )">
+		<b><label for="formControlRange" [ngStyle]="{'color': getColor() }">Niveau d'importance {{getSliderValue()}}</label></b>
+		<input type="range" class="form-control-range" id="formControlRange" name="importance" min="1" max="100" [(ngModel)]="model.importanceLevel">
+	</div>
+	
+	
+</form>

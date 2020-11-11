@@ -1,0 +1,55 @@
+
+<div class="container bg-bluepastel topCalendar" style=" overflow-y: hidden;"	>
+	<div class="row bg-darkbluepastel h1 text-white text-center">
+		<div class="col-3"><a (click)="weekBack()"><</a></div>
+		<div class="col-6">{{ getMoisActuelIntitule() }} {{anneeActuel}}</div>
+		<div class="col-3"><a  (click)="weekNext()">></a></div>
+	</div>
+	
+	<div class="row bg-light">
+		<div class="col-sm text-center">
+			<div class="container">
+				<div class="row h5  d-none d-xl-block">
+					<div class="row bg-bluepastel text-white bg-lightbluepastel text-center">
+						<div class="col ml-3" [ngClass]="{'today': isToday(currentWeek[0].jour) }">Lundi {{currentWeek[0].jour.getDate()}}</div>
+						<div class="col" [ngClass]="{'today': isToday(currentWeek[1].jour) }">Mardi {{currentWeek[1].jour.getDate()}}</div>
+						<div class="col"  [ngClass]="{'today': isToday(currentWeek[2].jour) }">Mercredi {{currentWeek[2].jour.getDate()}}</div>
+						<div class="col" [ngClass]="{'today': isToday(currentWeek[3].jour) }">Jeudi {{currentWeek[3].jour.getDate()}}</div>
+						<div class="col" [ngClass]="{'today': isToday(currentWeek[4].jour) }">Vendredi {{currentWeek[4].jour.getDate()}}</div>
+						<div class="col" [ngClass]="{'today': isToday(currentWeek[5].jour) }">Samedi {{currentWeek[5].jour.getDate()}}</div>
+						<div class="col mr-3" [ngClass]="{'today': isToday(currentWeek[6].jour) }">Dimanche {{currentWeek[6].jour.getDate()}}</div>
+					</div>
+				</div>
+			</div>
+			
+			<div style="height:500px; overflow:scroll;" class="boxPrincipale"  >
+				<app-loader *ngIf="isLoading"></app-loader>
+				<div class="row"  style="overflow: hidden; width:100%; margin:5px;" *ngIf="!isLoading" >
+					<div class="col-xl">
+						<h2 class="jourTitle display-4" [ngClass]="{'today': isToday(currentWeek[0].jour) }">LUNDI {{currentWeek[0].jour.getDate()}}</h2>
+						<app-task [index] = "0" [List1] = "currentWeek" [jour] = "currentWeek[0].jour"></app-task>
+					</div>
+					<div class="col-xl">
+						<h2 class="jourTitle display-4" [ngClass]="{'today': isToday(currentWeek[1].jour) }">MARDI {{currentWeek[1].jour.getDate()}}</h2>
+						<app-task [index] = "1" [List1] = "currentWeek" [jour] = "currentWeek[1].jour"></app-task>
+					</div><div class="col-xl">
+						<h2 class="jourTitle display-4" [ngClass]="{'today':isToday(currentWeek[2].jour) }">MERCREDI {{currentWeek[2].jour.getDate()}}</h2>
+						<app-task [index] = "2" [List1] = "currentWeek" [jour] = "currentWeek[2].jour"></app-task>
+					</div><div class="col-xl">
+						<h2 class="jourTitle display-4" [ngClass]="{'today': isToday(currentWeek[3].jour) }">JEUDI {{currentWeek[3].jour.getDate()}}</h2>
+						<app-task [index] = "3" [List1] = "currentWeek" [jour] = "currentWeek[3].jour "></app-task>
+					</div><div class="col-xl">
+						<h2 class="jourTitle display-4" [ngClass]="{'today': isToday(currentWeek[4].jour) }">VENDREDI {{currentWeek[4].jour.getDate()}}</h2>
+						<app-task [index] = "4" [List1] = "currentWeek" [jour] = "currentWeek[4].jour "></app-task>
+					</div><div class="col-xl">
+						<h2 class="jourTitle display-4" [ngClass]="{'today': isToday(currentWeek[5].jour) }">SAMEDI {{currentWeek[5].jour.getDate()}}</h2>
+						<app-task [index] = "5" [List1] = "currentWeek" [jour] = "currentWeek[5].jour "></app-task>
+					</div><div class="col-xl">
+						<h2 class="jourTitle display-4" [ngClass]="{'today': isToday(currentWeek[6].jour) }">DIMANCHE {{currentWeek[6].jour.getDate()}}</h2>
+						<app-task [index] = "6" [List1] = "currentWeek" [jour] = "currentWeek[6].jour"></app-task>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

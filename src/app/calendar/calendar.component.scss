@@ -1,0 +1,59 @@
+
+
+.topCalendar
+{
+	border-radius:15px;
+	border: 1px solid #D7D7D7;
+}
+
+
+.boxPrincipale
+{
+	height:450px;
+}
+
+.boxPrincipale::-webkit-scrollbar {
+    display: none;
+}
+
+.today
+{
+	color:#FFC107;
+	text-decoration: underline;
+}
+
+.btn-plus-top
+{
+	position: relative;
+	right:-98%;
+	bottom:5%;
+	z-index:999;
+	display:absolute;
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 479px) {
+    .topCalendar {
+        margin-top:50px;
+	}
+}
+@media (max-width: 479px) {
+    .topCalendar {
+        margin-top:10px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.jourTitle {
+        display:none;
+    }
+}
+

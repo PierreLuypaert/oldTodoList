@@ -1,0 +1,19 @@
+.boxCalendar
+{
+	min-height:55px;
+	height:auto;
+	border: solid 1px grey;
+	margin:5px;
+	border-radius:6px;
+	width: 100px;
+}
+
+.matiereTitre
+{
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.descriptionExo
+{word-wrap: break-word
+}
